@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_164052) do
+ActiveRecord::Schema.define(version: 2020_02_11_165817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,17 +18,23 @@ ActiveRecord::Schema.define(version: 2020_02_11_164052) do
   create_table "insurance_agricultures", force: :cascade do |t|
     t.text "kind_of_cultures", default: [], array: true
     t.boolean "drought_zone", default: false
+    t.bigint "insurance_id"
+    t.index ["insurance_id"], name: "index_insurance_agricultures_on_insurance_id"
   end
 
   create_table "insurance_automotives", force: :cascade do |t|
     t.integer "driver_licence_points"
     t.string "car_model"
     t.string "registration_number"
+    t.bigint "insurance_id"
+    t.index ["insurance_id"], name: "index_insurance_automotives_on_insurance_id"
   end
 
   create_table "insurance_immovables", force: :cascade do |t|
     t.integer "building_height"
     t.integer "number_of_floors"
+    t.bigint "insurance_id"
+    t.index ["insurance_id"], name: "index_insurance_immovables_on_insurance_id"
   end
 
   create_table "insurances", force: :cascade do |t|
