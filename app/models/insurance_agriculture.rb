@@ -1,0 +1,2 @@
+class InsuranceAgriculture < ApplicationRecord
+end

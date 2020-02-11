@@ -1,0 +1,2 @@
+class InsuranceAutomotive < ApplicationRecord
+end

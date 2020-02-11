@@ -1,0 +1,2 @@
+class InsuranceImmovable < ApplicationRecord
+end
