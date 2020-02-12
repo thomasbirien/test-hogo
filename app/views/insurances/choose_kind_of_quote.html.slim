@@ -1,0 +1,27 @@
+.container.mx-auto.mt-20
+  .mx-auto.max-w-sm.text-center.mt-20
+    h1.mb-6.pt-6.text-4xl Make the right choice :
+
+    .pl-12
+      = form_with url: new_insurance_path, local: true, method: "get" do
+        .flex.items-center.mr-4.mb-4
+          input.hidden id="radio1" type="radio" name="radio" value="auto_insu" checked="true"
+          label.flex.items-center.cursor-pointer.text-xl for="radio1"
+            span.w-8.h-8.inline-block.mr-2.rounded-full.border.border-grey.flex-no-shrink
+            p Automotive insurance
+
+        .flex.items-center.mr-4.mb-4
+          input.hidden id="radio2" type="radio" name="radio" value="agri_insu"
+          label.flex.items-center.cursor-pointer.text-xl for="radio2"
+            span.w-8.h-8.inline-block.mr-2.rounded-full.border.border-grey.flex-no-shrink
+            p Agriculture insurance
+
+        .flex.items-center.mr-4.mb-4
+          input.hidden id="radio3" type="radio" name="radio" value="immo_insu"
+          label.flex.items-center.cursor-pointer.text-xl for="radio3"
+            span.w-8.h-8.inline-block.mr-2.rounded-full.border.border-grey.flex-no-shrink
+            p immovable insurance
+
+        .mr-4.mb-4.mt-20.mx-auto
+          = submit_tag "create quote", class: "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+
