@@ -30,6 +30,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # slim fast, lightweight templating engine
 gem 'slim'
+
+#add gem tailwind for front design, choose tailwind insteed bootstrap cause is lighter
+gem 'tailwindcss', '~> 1.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
