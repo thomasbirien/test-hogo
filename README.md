@@ -5,20 +5,12 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.6.5
 
-* System dependencies
+* Rails version: 6.0.2
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Set up :
+  - run bundle install
+  - rails db:create
+  - rails db:migrate
+  - bundle exec rails g tailwindcss:install  to install tailwind files
