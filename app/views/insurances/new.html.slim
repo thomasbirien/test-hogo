@@ -1,6 +1,6 @@
 .container.mx-auto.mt-20
   h1.text-2xl.text-center.mb-12 give us some information about your company :
-  = form_with model: @insurance, class: "w-full max-w-lg mx-auto" do |f|
+  = form_with model: @insurance, local: true, class: "w-full max-w-lg mx-auto" do |f|
     = f.label :email_buyer
     = f.text_field :email_buyer, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
 
@@ -23,7 +23,7 @@
     = f.label :state
     = f.text_field :state, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
     - if @auto
-      = f.fields_for :insurance_automotive do |auto|
+      = f.fields_for :insurance_automotive_attributes do |auto|
         = auto.label :driver_licence_points
         = auto.number_field :driver_licence_points, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
         = auto.label :car_model
@@ -31,7 +31,7 @@
         = auto.label :registration_number
         = auto.text_field :registration_number, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
     - elsif @agri
-      = f.fields_for :insurance_agriculture do |agri|
+      = f.fields_for :insurance_agriculture_attributes do |agri|
         = agri.label :kind_of_cultures
         = agri.text_field :kind_of_cultures, placeholder: "Maïs, blé, etc", class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
         = agri.label :drought_zone
@@ -43,7 +43,7 @@
         / ici faudrais mettre une checkbox oui / non et mettre non par défault
 
     - elsif @immo
-      = f.fields_for :insurance_immovable do |immo|
+      = f.fields_for :insurance_immovable_attributes do |immo|
         = immo.label :building_height
         = immo.number_field :building_height, class: "appearance-none block w-full bg-gray-200 text-gray-700 border border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
         = immo.label :number_of_floors
