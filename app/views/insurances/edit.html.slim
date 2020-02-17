@@ -1,0 +1,4 @@
+.container.mx-auto.mt-20
+  h1.text-2xl.text-center.mb-12 give us some information about your company :
+  = form_with model: @insurance, local: true, method: :put, class: "w-full max-w-lg mx-auto" do |f|
+    = render partial: "form", locals: { f: f }

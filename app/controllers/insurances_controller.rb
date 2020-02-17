@@ -21,6 +21,15 @@ class InsurancesController < ApplicationController
   end
 
   def create
+    if params[:insurance][:insurance_agriculture_attributes].present?
+      params[:insurance][:insurance_agriculture_attributes][:kind_of_cultures] = params[:insurance][:insurance_agriculture_attributes][:kind_of_cultures].split(", ")
+    end
+    @insurance = Insurance.new(params_insurance)
+    if @insurance.save
+      redirect_to insurances_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -30,5 +39,35 @@ class InsurancesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def params_insurance
+    params.require(:insurance).permit(
+      :email_buyer,
+      :social_reason,
+      :siret,
+      :siren,
+      :naf,
+      :max_price,
+      :annual_revenue,
+      :tel,
+      :description,
+      :state,
+      insurance_immovable_attributes: [
+              :building_height,
+              :number_of_floors,
+              ],
+      insurance_automotive_attributes: [
+              :driver_licence_points,
+              :car_model,
+              :registration_number
+              ],
+      insurance_agriculture_attributes: [
+              :drought_zone,
+              :kind_of_cultures => []
+              ],
+      )
   end
 end
