@@ -1,3 +1,25 @@
 .container.mx-auto.mt-20
   .text-center
     = link_to "Create a new quote", insurances_choose_kind_of_quote_path, class: "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+  .text-center
+    table.table-auto.mx-auto.mt-12
+      thead
+        tr
+          th.px-4.py-2 insurance id
+          th.px-4.py-2 email
+          th.px-4.py-2 kind of insurance
+          th.px-4.py-2 edit
+          th.px-4.py-2 delete
+      - @insurances.each do |insu|
+        tbody
+          tr
+            td.border.px-4.py-2 = insu.id
+            td.border.px-4.py-2 = insu.email_buyer
+            - if insu.insurance_agriculture.present?
+              td.border.px-4.py-2 agriculture
+            - elsif insu.insurance_automotive.present?
+              td.border.px-4.py-2 automotive
+            - elsif insu.insurance_immovable.present?
+              td.border.px-4.py-2 immovable
+            td.border.px-4.py-2 = link_to "edit", edit_insurance_path(id: insu.id), class: "bg-orange-500 hover:bg-orange-400 text-white font-bold py-2 px-4 border-b-4 border-orange-700 hover:border-orange-500 rounded"
+            td.border.px-4.py-2 = link_to "delete",insurance_path(id: insu.id), method: :delete, class: "bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded"
