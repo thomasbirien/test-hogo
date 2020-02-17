@@ -55,11 +55,11 @@ class InsurancesController < ApplicationController
       :tel,
       :description,
       :state,
-      insurance_immovable: [
+      insurance_immovable_attributes: [
               :building_height,
               :number_of_floors,
               ],
-      insurance_automotive: [
+      insurance_automotive_attributes: [
               :driver_licence_points,
               :car_model,
               :registration_number
